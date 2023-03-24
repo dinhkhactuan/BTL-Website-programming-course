@@ -1,0 +1,33 @@
+extends main
+block content
+    .login-form
+        form(action='' method='')
+            .avatar
+                img(src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Avatar')
+            h2.text-center Member Sign Up
+            .form-group
+                input#username.form-control(type='text' name='username' placeholder='username')
+            .form-group
+                input#Email.form-control(type='email' name='email' placeholder='email')
+            .form-group
+                input#Password.form-control(type='password' name='password' placeholder='Password')
+                p.alert_text Password có độ dài 6 ký tự trở lên
+            .form-group
+                input#confirmPassword.form-control(type='password' name='confirmpassword' placeholder='confirmPassword')
+                p.alert_text Xác nhận Password 
+            .form-group
+                button#btn_SignUp.btn.btn-primary.btn-lg.btn-block.btn-form-logi Sign Up
+            .alert-message.alert-sussess
+                .alert.alert-success
+                    strong Success! Đăng ký thành công
+                     
+            .alert-message.alert-false
+                .alert.alert-danger
+                    strong False! Đăng ký thất bại
+            .bottom-action.clearfix
+                label.float-left.form-check-label
+                    input(type='checkbox')
+                    | Remember me
+                a.float-right(href='#') Forgot Password?
+        p.text-center.small you have an account? 
+            a(href='/login') login here!

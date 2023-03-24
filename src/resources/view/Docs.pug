@@ -1,0 +1,11 @@
+extends main 
+block content 
+    .top.p.b
+        | {{#each docs}}
+        nav(aria-label="breadcrumb doc-nav")
+            a(href="{{this.link_Doc}}")
+                ol.breadcrumb.doc-ol
+                    li.breadcrumb-item.active {{this.Docs}}
+        a.doc-btn(href="{{this.link_Doc}}")
+            | Xem Ngay
+        | {{/each}}

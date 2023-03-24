@@ -1,0 +1,47 @@
+extends main
+//- block content
+//-         .top.b.form-login
+//-             form(method='' action='')
+//-                 h1.text Register an account
+                
+//-                 .form-group
+//-                     label.text-form-login.text(for='email') Email
+//-                     input#Email.form-control(type='text' placeholder='Nhập Email Của Bạn' name='email')
+//-                 .form-group
+//-                     label.text-form-login.text(for='password') Password
+//-                     input#Password.form-control(type='password' placeholder='Password' name='password')
+//-                 .form-group
+//-                     label.text-form-login.text(for='confirmpassword') confirm password
+//-                     input#confirmpassword.form-control(type='password' placeholder='confirm password' name='confirmpassword')
+//-                     button.btn.btn-primary.btn-form-login Submit
+block content 
+    .login-form
+        form(action='' method='')
+            .avatar
+                img(src='https://cdn-icons-png.flaticon.com/512/149/149071.png' alt='Avatar')
+            h2.text-center Member Login
+            .form-group
+                input#Email.form-control(type='email' name='email' placeholder='Email' required='required')
+            .form-group
+                input#Password.form-control(type='password' name='password' placeholder='Password' required='required')
+            
+            .form-group.signin
+                button.btn.btn-primary.btn-lg.btn-block.btn-form-login Sign in
+
+                //- ////
+            .alert-message.alert-sussess
+                .alert.alert-success
+                        strong Success! Đăng nhập thành công
+                     
+            .alert-message.alert-false
+                .alert.alert-danger
+                        strong False! Đăng nhập thất bại
+                     
+
+            .bottom-action.clearfix
+                label.float-left.form-check-label
+                    input(type='checkbox')
+                    | Remember me
+                a.float-right(href='#') Forgot Password?
+        p.text-center.small Don't have an account? 
+            a(href='/signup') Sign up here!
