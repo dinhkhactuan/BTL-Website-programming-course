@@ -2,9 +2,10 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
+
 // const passport = require("passport");
 // const FacebookStrategy = require("passport-facebook").Strategy;
-const session = require("express-session");
+// const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3000;
 const routs = require("./routers");
@@ -26,14 +27,14 @@ app.use(morgan("combined"));
 // app.use(passport.initialize());
 
 app.use(cookieParser());
-app.use(
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-  })
-);
+// app.use(
+//   session({
+//     secret: "keyboard cat",
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false },
+//   })
+// );
 //set up
 
 // passport.serializeUser(function (user, done) {

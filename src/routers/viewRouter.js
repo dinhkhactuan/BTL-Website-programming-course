@@ -18,12 +18,23 @@ router.get(
 router.get(
   "/editCoures",
   authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin"),
   viewControllers.pageEditCoures
 );
 router.get("/signup", viewControllers.pageSignup);
 router.get("/login", viewControllers.pageLogin);
-router.get("/admin/profine", viewControllers.pageAdmin_Profine);
-router.get("/admin/Dashboard", viewControllers.pageAdmin_Dashboard);
+router.get(
+  "/admin/profine",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin"),
+  viewControllers.pageAdmin_Profine
+);
+router.get(
+  "/admin/Dashboard",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin"),
+  viewControllers.pageAdmin_Dashboard
+);
 router.get("/Docs", viewControllers.pageDocs);
 router.get(
   "/",

@@ -147,19 +147,19 @@ head
                 .form-group.mb-4
                   label.col-md-12.p-0 Full Name
                   .col-md-12.border-bottom.p-0
-                    input.form-control.p-0.border-0(type='text' placeholder='Johnathan Doe')
+                    input.form-control.p-0.border-0(type='text' value=user.username placeholder=user.username) 
                 .form-group.mb-4
                   label.col-md-12.p-0(for='example-email') Email
                   .col-md-12.border-bottom.p-0
-                    input#example-email.form-control.p-0.border-0(type='email' placeholder='johnathan@admin.com' name='example-email')
+                    input#example-email.form-control.p-0.border-0(type='email' value=user.email placeholder='admin@gmail.com' name='example-email')
                 .form-group.mb-4
                   label.col-md-12.p-0 Password
                   .col-md-12.border-bottom.p-0
                     input.form-control.p-0.border-0(type='password' value='password')
                 .form-group.mb-4
-                  label.col-md-12.p-0 Phone No
+                  label.col-md-12.p-0 Phone Number
                   .col-md-12.border-bottom.p-0
-                    input.form-control.p-0.border-0(type='text' placeholder='123 456 7890')
+                    input.form-control.p-0.border-0(type='text'  placeholder='PhoneNumber')
                 .form-group.mb-4
                   label.col-md-12.p-0 Message
                   .col-md-12.border-bottom.p-0
@@ -189,4 +189,4 @@ script(src='/js/js_admin/waves.js')
 // Menu sidebar
 script(src='/js/js_admin/sidebarmenu.js')
 // Custom JavaScript
-script(src='/js/js_admin/custom.js')
+script( src='/js/js_admin/custom.js')

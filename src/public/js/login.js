@@ -9,7 +9,6 @@ if (btnlogin)
 async function handleLogin() {
   const email = document.querySelector("#Email").value;
   const password = document.querySelector("#Password").value;
-  console.log(email, password);
   try {
     const res = await axios({
       method: "POST",
@@ -19,7 +18,7 @@ async function handleLogin() {
         password,
       },
     });
-    console.log(res);
+
     if (res.data.status == "success") {
       alertsussess.classList.add("active_success");
       setTimeout(() => {
@@ -27,6 +26,8 @@ async function handleLogin() {
           location.assign("/");
         });
       }, 2000);
+    } else if (res.data.status == "failed") {
+      alertfalse.classList.add("active_false");
     }
   } catch (error) {
     // else if (res.data.status != "success") {

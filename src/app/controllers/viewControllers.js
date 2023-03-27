@@ -97,6 +97,8 @@ exports.pageDetail = async (req, res, next) => {
 //   } catch (error) {}
 // };
 exports.pageAdmin_Profine = async (req, res, next) => {
+  // const user = await User.findById();
+  // console.log(user);
   try {
     res.status(200).render("admin/profine");
   } catch (error) {

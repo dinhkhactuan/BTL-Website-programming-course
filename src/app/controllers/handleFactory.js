@@ -16,7 +16,7 @@ exports.GetUser = (Model) => async (req, res, next) => {
   try {
     const Doc = await Model.findById(req.params.id).select("+password");
     if (!Doc) return res.status(500).json("user này ko tồn tại");
-    console.log(Doc);
+
     Doc.confirmpassword = undefined;
     res.status(200).json({
       status: "success",
@@ -38,7 +38,9 @@ exports.CreateResources = (Model) => async (req, res, next) => {
       status: "success",
       Document: Doc,
     });
+    console.log(Doc);
   } catch (error) {
+    console.log(error);
     res.status(200).json({
       status: "failed",
       error,
