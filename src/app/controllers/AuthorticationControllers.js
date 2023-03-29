@@ -53,12 +53,6 @@ exports.login = async (req, res, next) => {
 
 exports.CreateUser = async (req, res, next) => {
   try {
-    console.log(
-      req.body.username,
-      req.body.email,
-      req.body.password,
-      req.body.confirmpassword
-    );
     if (
       !req.body.username ||
       !req.body.email ||
@@ -102,7 +96,6 @@ exports.isLogin = async (req, res, next) => {
       if (!currentUser) return next();
 
       res.locals.user = currentUser;
-      console.log(res.locals.user);
 
       return next();
     } catch (error) {

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Docscontrollers = require("../app/controllers/Docs");
+const DocsController = require("../app/controllers/DocsControllers");
 
-router.get("/:Docs", Docscontrollers.Docs);
+router.get("/:Docs", DocsController.Doc);
 module.exports = router;

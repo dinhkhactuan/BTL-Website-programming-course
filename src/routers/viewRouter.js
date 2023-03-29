@@ -26,7 +26,7 @@ router.get("/login", viewControllers.pageLogin);
 router.get(
   "/admin/profine",
   authorzicationControllers.protect,
-  authorzicationControllers.decentralization("admin"),
+
   viewControllers.pageAdmin_Profine
 );
 router.get(

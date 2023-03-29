@@ -1,6 +1,7 @@
 const Coures = require("../models/coures");
 const User = require("../models/Users");
 const Lesson = require("../models/lesson_name");
+const Docs = require("../models/Docs");
 const { isLogin } = require("./AuthorticationControllers");
 exports.pageOverView = async (req, res, next) => {
   try {
@@ -22,17 +23,18 @@ exports.pageOverView = async (req, res, next) => {
 exports.pageDocs = async (req, res, next) => {
   try {
     const coures = await Coures.find({});
+    const docs = await Docs.find({});
 
-    // const lesson = await Lesson.find({});
     res.status(200).render("Docs", {
       title: "Docs",
       coures,
+      docs,
       // lesson,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       status: "failed",
-      error,
     });
   }
 };

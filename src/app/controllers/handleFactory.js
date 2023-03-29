@@ -38,7 +38,7 @@ exports.CreateResources = (Model) => async (req, res, next) => {
       status: "success",
       Document: Doc,
     });
-    console.log(Doc);
+    
   } catch (error) {
     console.log(error);
     res.status(200).json({
@@ -58,7 +58,7 @@ exports.UpdateResources = (Model) => async (req, res, next) => {
         runValidators: true,
       }
     );
-    console.log(Doc);
+    
     if (!Doc) res.status(500).json("Resources ko tồn tại");
     res.status(200).json({
       status: "success",
