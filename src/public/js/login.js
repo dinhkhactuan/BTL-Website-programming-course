@@ -1,4 +1,4 @@
-const btnlogin = document.querySelector(".btn-form-login");
+const btnlogin = document.querySelector("#Btn_Login");
 const alertsussess = document.querySelector(".alert-sussess");
 const alertfalse = document.querySelector(".alert-false");
 if (btnlogin)
@@ -7,8 +7,8 @@ if (btnlogin)
     handleLogin();
   });
 async function handleLogin() {
-  const email = document.querySelector("#Email").value;
-  const password = document.querySelector("#Password").value;
+  const email = document.querySelector("#typeEmailX").value;
+  const password = document.querySelector("#typePasswordX").value;
   try {
     const res = await axios({
       method: "POST",
@@ -18,23 +18,24 @@ async function handleLogin() {
         password,
       },
     });
+    console.log(res);
 
     if (res.data.status == "success") {
-      alertsussess.classList.add("active_success");
+      // alertsussess.classList.add("active_success");
       setTimeout(() => {
         window.setTimeout(() => {
           location.assign("/");
         });
-      }, 2000);
-    } else if (res.data.status == "failed") {
-      alertfalse.classList.add("active_false");
+      }, 1000);
+      // } else if (res.data.status == "failed") {
+      //   alertfalse.classList.add("active_false");
     }
   } catch (error) {
     // else if (res.data.status != "success") {
-    alertfalse.classList.add("active_false");
-    setTimeout(() => {
-      alertfalse.classList.remove("active_false");
-    }, 2000);
+    // alertfalse.classList.add("active_false");
+    // setTimeout(() => {
+    //   alertfalse.classList.remove("active_false");
+    // }, 5000);
     // }
   }
 }

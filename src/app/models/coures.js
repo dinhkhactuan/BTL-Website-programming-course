@@ -13,6 +13,11 @@ const couerSchema = new Schema(
       type: String,
       trim: true,
     },
+    motachitiet: {
+      type: String,
+      trim: true,
+      maxlength: 30,
+    },
     videoId: { type: String },
     img: { type: String },
     slug: {

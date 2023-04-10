@@ -6,8 +6,13 @@ const userControllers = require("../app/controllers/UserControllers");
 
 router.get(
   "/Coures/:slug",
-  authorzicationControllers.protect,
-  viewControllers.pageDetail
+  // authorzicationControllers.protect,
+  viewControllers.pageChitiet
+);
+router.get(
+  "/coure-detail/:slug",
+  authorzicationControllers.isLogin,
+  viewControllers.pageXemchitiet
 );
 router.get(
   "/CreateCoures",
@@ -15,14 +20,23 @@ router.get(
   authorzicationControllers.decentralization("admin"),
   viewControllers.pageCreateCoures
 );
-router.get(
-  "/editCoures",
-  authorzicationControllers.protect,
-  authorzicationControllers.decentralization("admin"),
-  viewControllers.pageEditCoures
-);
 router.get("/signup", viewControllers.pageSignup);
 router.get("/login", viewControllers.pageLogin);
+router.get(
+  "/about",
+  authorzicationControllers.isLogin,
+  viewControllers.Page_about
+);
+router.get(
+  "/category",
+  authorzicationControllers.isLogin,
+  viewControllers.page_category
+);
+router.get(
+  "/test",
+  authorzicationControllers.isLogin,
+  viewControllers.page_test
+);
 router.get(
   "/admin/profine",
   authorzicationControllers.protect,
@@ -35,7 +49,12 @@ router.get(
   authorzicationControllers.decentralization("admin"),
   viewControllers.pageAdmin_Dashboard
 );
-router.get("/Docs", viewControllers.pageDocs);
+router.get(
+  "/Docs",
+  authorzicationControllers.isLogin,
+  viewControllers.pageDocs
+);
+
 router.get(
   "/",
   authorzicationControllers.isLogin,

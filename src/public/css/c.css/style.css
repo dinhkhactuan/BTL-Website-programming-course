@@ -9664,4 +9664,5 @@ File: scss
 button#btn_createCoures {
   width: 100%;
   background-color: #f33155;
-  border-color: #f33155; }
+  border-color: #f33155;
+  color: #f33155; }

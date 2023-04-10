@@ -162,3 +162,9 @@ exports.decentralization = (...roles) => {
     next();
   };
 };
+exports.checkDocs = (res, req, next) => {
+  if (!this.protect) {
+    window.location.assign("/login");
+  }
+  next();
+};

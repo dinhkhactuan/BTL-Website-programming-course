@@ -1,19 +1,22 @@
-const btnSignUp = document.querySelector("#btn_SignUp");
-const alertsussess1 = document.querySelector(".alert-sussess");
-const alertfalse1 = document.querySelector(".alert-false");
-const username = document.querySelector("#username").value;
-const email = document.querySelector("#Email").value;
-const password = document.querySelector("#Password").value;
-const confirmpassword = document.querySelector("#confirmPassword").value;
+const btnSignUp = document.querySelector("#BTN_SIGN_UP");
+// const alertsussess1 = document.querySelector(".alert-sussess");
+// const alertfalse1 = document.querySelector(".alert-false");
 
 if (btnSignUp) {
   btnSignUp.addEventListener("click", (e) => {
     e.preventDefault();
-    if (!password) handleSignUp();
+    handleSignUp();
   });
 }
 async function handleSignUp() {
   try {
+    const username = document.querySelector("#typeUserNameX").value;
+    const email = document.querySelector("#typeEmailX").value;
+    const password = document.querySelector("#typePasswordX").value;
+    const confirmpassword = document.querySelector(
+      "#typeConfirmPasswordX"
+    ).value;
+    const phone_number = document.querySelector("#typePhoneNumberX").value;
     const res = await axios({
       method: "POST",
       url: "/api/v1/user/signup",
@@ -27,17 +30,19 @@ async function handleSignUp() {
 
     console.log(res);
     if (res.data.status == "success") {
-      alertsussess1.classList.add("active_success");
+      // alertsussess1.classList.add("active_success");
       window.setTimeout(() => {
         location.assign("/login");
       }, 200);
-    } else if (res.data == "vui lòng nhập đầy đủ thông tin") {
-      alertfalse1.classList.add("active_false");
+      // } else if (res.data == "vui lòng nhập đầy đủ thông tin") {
+      //   alertfalse1.classList.add("active_false");
     }
   } catch (error) {
-    alertfalse1.classList.add("active_false");
-    setTimeout(() => {
-      alertfalse1.classList.remove("active_false");
-    }, 5000);
+    //   alertfalse1.classList.add("active_false");
+    //   setTimeout(() => {
+    //     alertfalse1.classList.remove("active_false");
+    //   }, 5000);
+    // }
+    console.log(error);
   }
 }

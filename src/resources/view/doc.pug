@@ -2,7 +2,7 @@ extends main
 block content 
     .top.p.b
         each Doucument in docs
-            nav(aria-label="breadcrumb doc-nav")
+            div
                 a(href=`${Doucument.link_Office}` target="_blank")
                     ol.breadcrumb.doc-ol
                         li.breadcrumb-item.active=Doucument.name
