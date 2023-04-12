@@ -6,7 +6,7 @@ const userControllers = require("../app/controllers/UserControllers");
 
 router.get(
   "/Coures/:slug",
-  // authorzicationControllers.protect,
+  authorzicationControllers.protect,
   viewControllers.pageChitiet
 );
 router.get(
@@ -40,7 +40,6 @@ router.get(
 router.get(
   "/admin/profine",
   authorzicationControllers.protect,
-
   viewControllers.pageAdmin_Profine
 );
 router.get(

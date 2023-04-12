@@ -30,7 +30,7 @@ html
                         nav.navbar.navbar-expand-lg.custom_nav-container
                             a.navbar-brand(href='/')
                                 span
-                                    | Feane
+                                    | Coures
                             button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                                 span  
                             #navbarSupportedContent.collapse.navbar-collapse
@@ -48,11 +48,8 @@ html
                                     li.nav-item
                                         a.nav-link(href='') More
                                     li.nav-item
-                                        a.nav-link(href='/test') Book Table
+                                        a.nav-link(href='/test') Câu hỏi của bạn
                                 .user_option
-                                    a.user_link(href='')
-                                        i.fa.fa-user(aria-hidden='true')
-                                            
                                     form.form-inline
                                         button.btn.my-2.my-sm-0.nav_search-btn(type='submit')
                                             i.fa.fa-search(aria-hidden='true')
@@ -62,6 +59,13 @@ html
                                         a.order_online(href='/login')
                                                     | Login
                                     else
-                                        a.order_online(href='')
-                                                    | avata
+                                        a#USER_NAME.user_link(href='')
+                                            i.fa.fa-user(aria-hidden='true')
+                                            span=user.username || user.displayName
+                                            
+                                        div#MENU_BOX.dropdown-menu.dropdown-menu-right 
+                                            if(user.role==="admin")
+                                                a.dropdown-item(href="/admin/Dashboard") Manager Admin
+                                            a.dropdown-item(href="/admin/profine") Profile 
+                                            a#BTN_LOGOUT.dropdown-item(href="") Logout
 

@@ -194,17 +194,19 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 20px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
 }
 
-.user_option a {
+/* .user_option a {
   margin: 0 10px;
-}
+} */
 
 .user_option .user_link {
   color: #ffffff;
+  padding: 10px;
 }
 
 .user_option .user_link:hover {

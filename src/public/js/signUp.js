@@ -16,7 +16,7 @@ async function handleSignUp() {
     const confirmpassword = document.querySelector(
       "#typeConfirmPasswordX"
     ).value;
-    const phone_number = document.querySelector("#typePhoneNumberX").value;
+    const phoneNumber = document.querySelector("#typePhoneNumberX").value;
     const res = await axios({
       method: "POST",
       url: "/api/v1/user/signup",
@@ -25,6 +25,7 @@ async function handleSignUp() {
         email,
         password,
         confirmpassword,
+        phoneNumber,
       },
     });
 

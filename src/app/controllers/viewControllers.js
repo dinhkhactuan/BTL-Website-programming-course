@@ -2,15 +2,17 @@ const Coures = require("../models/coures");
 const User = require("../models/Users");
 const Doc = require("../models/Docs");
 const Lesson = require("../models/lesson_name");
-const { isLogin } = require("./AuthorticationControllers");
+
 exports.pageOverView = async (req, res, next) => {
   try {
     const coures = await Coures.find({});
-
     // const lesson = await Lesson.find({});
+    // console.log(req.user);
+
     res.status(200).render("home", {
       title: "home",
       coures,
+
       // lesson,
     });
   } catch (error) {
@@ -92,6 +94,7 @@ exports.pageProfine = async (req, res, next) => {
 exports.pageAdmin_Profine = async (req, res, next) => {
   // const user = await User.findById();
   // console.log(user);
+
   try {
     res.status(200).render("admin/profine");
   } catch (error) {

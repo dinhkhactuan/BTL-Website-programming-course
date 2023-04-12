@@ -94,9 +94,16 @@ exports.isLogin = async (req, res, next) => {
       if (!token) return next();
       const currentUser = await User.findById({ _id: token.id });
       if (!currentUser) return next();
-
       res.locals.user = currentUser;
 
+      return next();
+    } catch (error) {
+      return next();
+    }
+  }
+  if (req.user) {
+    try {
+      res.locals.user = req.user;
       return next();
     } catch (error) {
       return next();
@@ -107,6 +114,10 @@ exports.isLogin = async (req, res, next) => {
 
 exports.protect = async (req, res, next) => {
   try {
+    if (req.user) {
+      res.locals.user = req.user;
+      return next();
+    }
     let token;
     if (
       req.headers.authorization &&
@@ -125,9 +136,7 @@ exports.protect = async (req, res, next) => {
 
     if (!CurrentUser)
       return res.json("The user belonging to this token does no longer exist");
-
     req.user = CurrentUser;
-
     res.locals.user = CurrentUser;
     next();
   } catch (error) {
@@ -139,6 +148,9 @@ exports.protect = async (req, res, next) => {
 
 exports.logout = async (req, res, next) => {
   try {
+    req.session.destroy(function (err) {
+      console.log("session destroyed.");
+    });
     res.cookie("jwt", "logout", {
       expires: new Date(Date.now() + 1 * 1000),
       httpOnly: true,

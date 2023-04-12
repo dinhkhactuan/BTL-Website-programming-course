@@ -8,7 +8,7 @@ block content
                 .container
                     .heading_container
                         h2
-                            | Book A Table
+                            | Câu Hỏi Của bạn
                     .row
                         .col-md-6
                             .form_container
@@ -20,22 +20,24 @@ block content
                                     div
                                         input.form-control(type='email' placeholder='Your Email')
                                     div
+                                        textarea.form-control(type='email' placeholder='Your Email')
+                                    div
                                         select.form-control.nice-select.wide
                                             option(value='' disabled='' selected='')
-                                                | How many persons?
+                                                | Bạn Đến Từ Đâu
                                             option(value='')
-                                                | 2
+                                                | Hà Nội
                                             option(value='')
-                                                | 3
+                                                | Thành Phố HCM
                                             option(value='')
-                                                | 4
+                                                | Nam Định
                                             option(value='')
-                                                | 5
+                                                | ...
                                     div
                                         input.form-control(type='date')
                                     .btn_box
                                         button
-                                            | Book Now
+                                            | Gửi 
                         .col-md-6
                             .map_container
                                 #googleMap

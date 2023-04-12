@@ -1,4 +1,4 @@
-const logout = document.querySelector("#avata_logout");
+const logout = document.querySelector("#BTN_LOGOUT");
 if (logout) {
   logout.addEventListener("click", (e) => {
     e.preventDefault();
@@ -13,6 +13,7 @@ async function handleLogout() {
     });
     if (res.data.status == "success") {
       location.reload(true);
+      window.location.assign("/");
     }
   } catch (error) {
     res.status(500).json("lỗi token");

@@ -21,6 +21,13 @@ const User = new Schema(
       required: [true, "email bắt buộc phải có"],
       validate: [validator.isEmail, " vui lòng nhập email đúng định dạng"],
     },
+    img: {
+      type: String,
+    },
+    phoneNumber: {
+      type: String,
+      require: [true, "sdt bắt buộc phải có"],
+    },
     password: {
       type: String,
       required: [true, "password bắt buộc phải có"],

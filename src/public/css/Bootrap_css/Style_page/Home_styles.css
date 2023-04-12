@@ -3311,7 +3311,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-menu-right {
-  right: 0;
+  right: -30px;
   left: auto;
 }
 
@@ -8408,11 +8408,11 @@ button.bg-dark:focus {
 .mx-5 {
   margin-right: 3rem !important;
 }
-
+/* 
 .mb-5,
 .my-5 {
   margin-bottom: 3rem !important;
-}
+} */
 
 .ml-5,
 .mx-5 {
@@ -10404,4 +10404,7 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+.icon_login_application {
+  font-size: 40px !important;
 }

@@ -57,7 +57,7 @@ block content
           
             li
               a.profile-pic(href='/admin/profine')
-                img.img-circle(src='/Bootstrap_plugins_admin/images/users/varun.jpg' alt='user-img' width='36')
+                img.img-circle(src=`${user.img ||user.photos[0].value}` alt='user-img' width='36')
                 span.text-white.font-medium Steave
           
     aside.left-sidebar(data-sidebarbg='skin6')
@@ -116,20 +116,15 @@ block content
                 | Test
   
       .container-fluid
-        // ==============================================================
-        // Start Page Content
-        // ==============================================================
-        // Row
         .row
-          // Column
           .col-lg-4.col-xlg-3.col-md-12
             .white-box
               .user-bg
-                img(width='100%' alt='user' src='/Bootstrap_plugins_admin/images/large/img1.jpg')
+                img(width='100%' alt='user' src=`${user.img ||user.photos[0].value}`)
                 .overlay-box
                   .user-content
                     a(href='javascript:void(0)')
-                      img.thumb-lg.img-circle(src='/Bootstrap_plugins_admin/images/users/genu.jpg' alt='img')
+                      img.thumb-lg.img-circle(src=`${user.img ||user.photos[0].value}` alt='img')
                     h4.text-white.mt-2 User Name
                     h5.text-white.mt-2 info@myadmin.com
               .user-btm-box.mt-5.d-md-flex
@@ -148,32 +143,32 @@ block content
                   .form-group.mb-4
                     label.col-md-12.p-0 Full Name
                     .col-md-12.border-bottom.p-0
-                      input.form-control.p-0.border-0(type='text' value=user.username placeholder=user.username) 
+                      input.form-control.p-0.border-0(type='text' value=(user.username || user.displayName) placeholder=user.username) 
                   .form-group.mb-4
                     label.col-md-12.p-0(for='example-email') Email
                     .col-md-12.border-bottom.p-0
-                      input#example-email.form-control.p-0.border-0(type='email' value=user.email placeholder='admin@gmail.com' name='example-email')
+                      input#example-email.form-control.p-0.border-0(type='email' value=user.email || user.emails[0].value placeholder='admin@gmail.com' name='example-email')
                   .form-group.mb-4
                     label.col-md-12.p-0 Password
                     .col-md-12.border-bottom.p-0
-                      input.form-control.p-0.border-0(type='password' value='password')
+                      input.form-control.p-0.border-0(type='password' value=user.password)
                   .form-group.mb-4
                     label.col-md-12.p-0 Phone Number
                     .col-md-12.border-bottom.p-0
-                      input.form-control.p-0.border-0(type='text'  placeholder='PhoneNumber')
+                      input.form-control.p-0.border-0(type='text' value=user.phoneNumber  placeholder='PhoneNumber')
                   .form-group.mb-4
                     label.col-md-12.p-0 Message
                     .col-md-12.border-bottom.p-0
                       textarea.form-control.p-0.border-0(rows='5')
-                  .form-group.mb-4
-                    label.col-sm-12 Select Country
-                    .col-sm-12.border-bottom
-                      select.form-select.shadow-none.p-0.border-0.form-control-line
-                        option London
-                        option India
-                        option Usa
-                        option Canada
-                        option Thailand
+                  //- .form-group.mb-4
+                  //-   label.col-sm-12 Select Country
+                  //-   .col-sm-12.border-bottom
+                  //-     select.form-select.shadow-none.p-0.border-0.form-control-line
+                  //-       option London
+                  //-       option India
+                  //-       option Usa
+                  //-       option Canada
+                  //-       option Thailand
                   .form-group.mb-4
                     .col-sm-12
                       button.btn.btn-success Update Profile
