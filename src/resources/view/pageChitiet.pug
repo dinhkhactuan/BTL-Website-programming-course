@@ -1,30 +1,156 @@
-extends main
-block content
-    .mt-4
-        .row.top
-            //- .col-lg-3.mt-4.mb-4
-            //-     .card(style='width: 18rem;')
-            //-         img.card-img-top(src='https://fedora.teachablecdn.com/assets/user-0ae68ba67e6ead32c4ff1cc668d501f896bddd5ef1667ac3e9ff29ce601ed653.png' alt='Card image cap')
-            //-         .card-body
-            //-             h5.card-title Athur : Đinh Khắc Tuấn
-            //-             p.card-text
-            //-                 | WebSite Do Đinh Tuấn Tạo ra Nhằm Phục vụ Cho Mọi Người Học Lập Và Rèn Luyện
-            //-             a.btn.btn-primary.card-btn(href='/') Go Home
-            .col-lg-9#vdetail_video
+//- extends main
+//- block content
+    //- .mt-4
+    //-     .row.top
+    //-         //- .col-lg-3.mt-4.mb-4
+    //-         //-     .card(style='width: 18rem;')
+    //-         //-         img.card-img-top(src='https://fedora.teachablecdn.com/assets/user-0ae68ba67e6ead32c4ff1cc668d501f896bddd5ef1667ac3e9ff29ce601ed653.png' alt='Card image cap')
+    //-         //-         .card-body
+    //-         //-             h5.card-title Athur : Đinh Khắc Tuấn
+    //-         //-             p.card-text
+    //-         //-                 | WebSite Do Đinh Tuấn Tạo ra Nhằm Phục vụ Cho Mọi Người Học Lập Và Rèn Luyện
+    //-         //-             a.btn.btn-primary.card-btn(href='/') Go Home
+    //-         .col-lg-9#vdetail_video
                 
-                a(href='/coures/nodejs-express')
-                    iframe(width='600' height='350' src=`https://www.youtube.com/embed/${coures.videoId}` title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
-            .col-lg-3
-                .wrapper
-                    .d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white(style='width: 310px;')
-                        a.d-flex.align-items-center.flex-shrink-0.p-3.link-dark.text-decoration-none.border-bottom(href=`/Coures/${coures.slug}`)
-                            svg.bi.me-2(width='30' height='24')
-                                use(xlink:href='#bootstrap')
-                            span.fs-5.fw-semibold=coures.name
-                        .list-group.list-group-flush.border-bottom.scrollarea
-                        each Lesson in lesson
-                            a.list-group-item.list-group-item-action.active.py-3.lh-tight(href=`https://www.youtube.com/embed/${Lesson.Idvideo}` aria-current='true' target="_blank")
-                                .d-flex.w-100.align-items-center.justify-content-between
-                                    strong.mb-1=Lesson.lessonName
-                                    small Wed
-                                .col-10.mb-1.small.text-uppercase 
+    //-             a(href='/coures/nodejs-express')
+    //-                 iframe(width='600' height='350' src=`https://www.youtube.com/embed/${coures.videoId}` title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+    //-         .col-lg-3
+    //-             .wrapper
+    //-                 .d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white(style='width: 310px;')
+    //-                     a.d-flex.align-items-center.flex-shrink-0.p-3.link-dark.text-decoration-none.border-bottom(href=`/Coures/${coures.slug}`)
+    //-                         svg.bi.me-2(width='30' height='24')
+    //-                             use(xlink:href='#bootstrap')
+    //-                         span.fs-5.fw-semibold=coures.name
+    //-                     .list-group.list-group-flush.border-bottom.scrollarea
+    //-                     each Lesson in lesson
+    //-                         a.list-group-item.list-group-item-action.active.py-3.lh-tight(href=`https://www.youtube.com/embed/${Lesson.Idvideo}` aria-current='true' target="_blank")
+    //-                             .d-flex.w-100.align-items-center.justify-content-between
+    //-                                 strong.mb-1=Lesson.lessonName
+    //-                                 small Wed
+    //-                             .col-10.mb-1.small.text-uppercase 
+
+extends main 
+block content
+        if user || !user
+            .blog-single.gray-bg
+                .container
+                    .row.align-items-start
+                        .col-lg-8.m-15px-tb
+                            article.article
+                                .article-img
+                                    a(href='/coures/nodejs-express')
+                                        iframe(maxwidth='600' height='450' src=`https://www.youtube.com/embed/${coures.videoId}` title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+                                .article-title
+                                    
+                                    h2=coures.name
+                                    .media
+                                        .avatar
+                                            img(src='https://bootdey.com/img/Content/avatar/avatar1.png' title='' alt='')
+                                        .media-body
+                                            label Đinh Tuấn
+                                            span 08/04/2023
+                                .article-content
+                                    p=coures.motachitiet
+                                    h4 What are my payment options?
+                                    p
+                                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    blockquote
+                                        p
+                                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                        p.blockquote-footer
+                                            | Someone famous in 
+                                            cite(title='Source Title') Dick Grayson
+                                    p
+                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                .nav.tag-cloud
+                                    a(href='#') Design
+                                    a(href='#') Development
+                                    a(href='#') Travel
+                                    a(href='#') Web Design
+                                    a(href='#') Marketing
+                                    a(href='#') Research
+                                    a(href='#') Managment
+                            .contact-form.article-comment
+                                h4 Leave a Reply
+                                form#contact-form(method='POST')
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                input#name.form-control(name='Name' placeholder='Name *' type='text')
+                                        .col-md-6
+                                            .form-group
+                                                input#email.form-control(name='Email' placeholder='Email *' type='email')
+                                        .col-md-12
+                                            .form-group
+                                                textarea#message.form-control(name='message' placeholder='Your message *' rows='4')
+                                        .col-md-12
+                                            .send
+                                                button.px-btn.theme
+                                                    span Submit
+                                                    i.arrow
+                        .col-lg-4.m-15px-tb.blog-aside
+                            .widget.widget-post
+                                .widget-title
+                                    h3 Trending Now
+                                .widget-body
+                                    each Lesson in lesson
+                                            p=Lesson.lessonName
+                                            a.list-group-item.list-group-item-action.active.py-3.lh-tight(href=`https://www.youtube.com/embed/${Lesson.Idvideo}` aria-current='true')
+                                    
+                            .widget.widget-latest-post
+                                .widget-title
+                                    h3 Latest Post
+                                .widget-body
+                                    .latest-post-aside.media
+                                        .lpa-left.media-body
+                                            .lpa-title
+                                                h5
+                                                    a(href='#') Prevent 75% of visitors from google analytics
+                                            .lpa-meta
+                                                a.name(href='#')
+                                                    | Rachel Roth
+                                                a.date(href='#')
+                                                    | 26 FEB 2020
+                                        .lpa-right
+                                            a(href='#')
+                                                img(src='https://www.bootdey.com/image/400x200/FFB6C1/000000' title='' alt='')
+                                    .latest-post-aside.media
+                                        .lpa-left.media-body
+                                            .lpa-title
+                                                h5
+                                                    a(href='#') Prevent 75% of visitors from google analytics
+                                            .lpa-meta
+                                                a.name(href='#')
+                                                    | Rachel Roth
+                                                a.date(href='#')
+                                                    | 26 FEB 2020
+                                        .lpa-right
+                                            a(href='#')
+                                                img(src='https://www.bootdey.com/image/400x200/FFB6C1/000000' title='' alt='')
+                                    .latest-post-aside.media
+                                        .lpa-left.media-body
+                                            .lpa-title
+                                                h5
+                                                    a(href='#') Prevent 75% of visitors from google analytics
+                                            .lpa-meta
+                                                a.name(href='#')
+                                                    | Rachel Roth
+                                                a.date(href='#')
+                                                    | 26 FEB 2020
+                                        .lpa-right
+                                            a(href='#')
+                                                img(src='https://www.bootdey.com/image/400x200/FFB6C1/000000' title='' alt='')
+                            // End Latest Post
+                            // widget Tags
+                            .widget.widget-tags
+                                .widget-title
+                                    h3 Latest Tags
+                                .widget-body
+                                    .nav.tag-cloud
+                                        a(href='#') Design
+                                        a(href='#') Development
+                                        a(href='#') Travel
+                                        a(href='#') Web Design
+                                        a(href='#') Marketing
+                                        a(href='#') Research
+                                        a(href='#') Managment
