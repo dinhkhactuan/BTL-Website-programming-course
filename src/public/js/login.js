@@ -21,11 +21,9 @@ async function handleLogin() {
 
     if (res.data.status == "success") {
       // alertsussess.classList.add("active_success");
-      setTimeout(() => {
-        window.setTimeout(() => {
-          location.assign("/");
-        });
-      }, 5000);
+      window.setTimeout(() => {
+        location.assign("/");
+      });
 
       // } else if (res.data.status == "failed") {
       //   alertfalse.classList.add("active_false");
