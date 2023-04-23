@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 
 async function connect() {
   try {
-    await mongoose.connect(`${process.env.MONGODB_URL}/WebCouse_Learning`);
+    await mongoose.connect(
+      `mongodb+srv://dinhkhactuan2002:060702002@cluster0.qzxx1kq.mongodb.net/WebCouse_Learning`
+    );
     console.log("success");
   } catch (error) {
     console.log("fail");
