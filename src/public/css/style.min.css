@@ -6023,7 +6023,7 @@ fieldset:disabled .btn {
   border-radius: 2px;
 }
 .toast:not(.showing):not(.show) {
-  opacity: 0;
+  opacity: 1;
 }
 .toast.hide {
   display: none;
@@ -11433,7 +11433,6 @@ html[dir="ltr"] body .p-l-0 {
 }
 #main-wrapper[data-layout="horizontal"] .left-sidebar[data-sidebarbg="skin6"],
 #main-wrapper[data-layout="vertical"] .left-sidebar[data-sidebarbg="skin6"] {
-  padding-top: 127px;
   background: #fff;
 }
 #main-wrapper[data-layout="horizontal"]
@@ -11535,12 +11534,12 @@ html[dir="ltr"] body .p-l-0 {
 }
 #main-wrapper {
   width: 100%;
-  margin-top: 69px;
   overflow: hidden;
 }
 .page-wrapper {
   background: #edf1f5;
   position: relative;
+  min-height: 100vh;
 }
 .page-wrapper > .container-fluid,
 .page-wrapper > .container-lg,
@@ -12427,8 +12426,7 @@ select.form-select.form-control-line {
 .left-sidebar {
   position: absolute;
   width: 240px;
-  height: 100%;
-  top: 0px;
+  top: 86px;
   border: 1px solid #ccc;
   padding-top: 64px;
   background: #fff;

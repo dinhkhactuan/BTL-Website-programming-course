@@ -76,33 +76,34 @@ block content
                 i.fa.fa-user(aria-hidden='true')
                 span.hide-menu Profile
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='basic-table.html' aria-expanded='false')
-                i.fa.fa-table(aria-hidden='true')
-                span.hide-menu Basic Table
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='' aria-expanded='false')
+                i.fa-solid.fa-people-roof
+                span.hide-menu Manager User
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='fontawesome.html' aria-expanded='false')
-                i.fa.fa-font(aria-hidden='true')
-                span.hide-menu Icon
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='' aria-expanded='false')
+                i.fa-solid.fa-comments
+                span.hide-menu Manager Commemt
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/CreateCoures' aria-expanded='false')
-                i.fa.fa-globe(aria-hidden='true')
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='' aria-expanded='false')
+                i.fa-solid.fa-list-check
+                span.hide-menu Manager Posts
+            li.sidebar-item
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/CreateCoures' aria-expanded='false')
+                i.fa-solid.fa-square-plus
                 span.hide-menu CreateCoures
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='blank.html' aria-expanded='false')
-                i.fa.fa-columns(aria-hidden='true')
-                span.hide-menu Blank Page
-            li.sidebar-item
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/ManagerCoures' aria-expanded='false')
+                i.fa-solid.fa-list-check
+                span.hide-menu Manager Coures
               a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='404.html' aria-expanded='false')
                 i.fa.fa-info-circle(aria-hidden='true')
                 span.hide-menu Error 404
-            li.text-center.p-20.upgrade-btn
-              a.btn.d-grid.btn-danger.text-white(href='https://www.wrappixel.com/templates/ampleadmin/' target='_blank')
-                | Test
+            li.sidebar-item
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/system' aria-expanded='false')
+                i.fa-sharp.fa-solid.fa-gear
+                span.hide-menu System
 
     .page-wrapper
-      // ==============================================================
-      // Bread crumb and right sidebar toggle
-      // ==============================================================
       .page-breadcrumb.bg-white
         .row.align-items-center
           .col-lg-3.col-md-4.col-sm-4.col-xs-12

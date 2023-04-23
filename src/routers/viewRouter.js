@@ -9,16 +9,47 @@ router.get(
   authorzicationControllers.protect,
   viewControllers.pageChitiet
 );
+
 router.get(
   "/coure-detail/:slug",
   authorzicationControllers.isLogin,
   viewControllers.pageXemchitiet
 );
 router.get(
-  "/CreateCoures",
+  "/admin/CreateCoures",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin", "manager"),
+  viewControllers.pageCreateCoures
+);
+router.get(
+  "/admin/UpdateCoures/:id",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin", "manager"),
+  viewControllers.PageUpdateCoures
+);
+router.get(
+  "/admin/ManagerCoures",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin", "manager"),
+  viewControllers.PageManagerCoures
+);
+router.get(
+  "/admin/system",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin"),
-  viewControllers.pageCreateCoures
+  viewControllers.PageSystem
+);
+router.get(
+  "/admin/system/create_admin",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin"),
+  viewControllers.Pagecreate_admin
+);
+router.get(
+  "/admin/system/edit/:id",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin"),
+  viewControllers.PageEdit_admin
 );
 router.get("/signup", viewControllers.pageSignup);
 router.get("/login", viewControllers.pageLogin);
@@ -36,6 +67,16 @@ router.get(
   "/test",
   authorzicationControllers.isLogin,
   viewControllers.page_test
+);
+router.get(
+  "/user",
+  authorzicationControllers.isLogin,
+  viewControllers.user_view
+);
+router.get(
+  "/user/profile",
+  authorzicationControllers.isLogin,
+  viewControllers.profile
 );
 router.get(
   "/admin/profine",

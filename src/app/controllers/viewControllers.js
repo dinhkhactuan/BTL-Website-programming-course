@@ -68,10 +68,80 @@ exports.page_test = async (req, res, next) => {
     });
   } catch (error) {}
 };
+exports.user_view = async (req, res, next) => {
+  try {
+    res.status(200).render("user_view", {
+      title: "user",
+    });
+  } catch (error) {}
+};
+exports.profile = async (req, res, next) => {
+  try {
+    res.status(200).render("profile", {
+      title: "User-profile",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 exports.pageCreateCoures = async (req, res, next) => {
   try {
     res.status(200).render("admin/createCoures", {
       title: "createCoures",
+    });
+  } catch (error) {}
+};
+exports.PageManagerCoures = async (req, res, next) => {
+  try {
+    const coures = await Coures.find({});
+    res.status(200).render("admin/ManagerCoures", {
+      title: "Update Coures",
+      coures,
+    });
+  } catch (error) {}
+};
+exports.PageUpdateCoures = async (req, res, next) => {
+  try {
+    const coures = await Coures.findOne({ _id: req.params.id });
+    console.log(coures);
+    res.status(200).render("admin/UpdateCoures", {
+      title: "Update Coures",
+      coures,
+    });
+  } catch (error) {}
+};
+exports.PageDeletecoures = async (req, res, next) => {
+  try {
+    const coures = await Coures.find({});
+    res.status(200).render("admin/Delete_Coures", {
+      title: "Delete Coures",
+      coures,
+    });
+  } catch (error) {}
+};
+exports.PageSystem = async (req, res, next) => {
+  const users = await User.find({});
+  try {
+    res.status(200).render("admin/System", {
+      title: "System",
+      users,
+    });
+  } catch (error) {}
+};
+exports.Pagecreate_admin = async (req, res, next) => {
+  try {
+    res.status(200).render("admin/CreateAdmin", {
+      title: "Create Admin",
+    });
+  } catch (error) {}
+};
+exports.PageEdit_admin = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+    console.log(user);
+    res.status(200).render("admin/EditAdmin", {
+      title: "Edit Admin",
+      user,
     });
   } catch (error) {}
 };
@@ -86,6 +156,7 @@ exports.pageChitiet = async (req, res, next) => {
     console.log(error);
   }
 };
+
 exports.pageProfine = async (req, res, next) => {
   try {
     res.status(200).render("pageProfine");

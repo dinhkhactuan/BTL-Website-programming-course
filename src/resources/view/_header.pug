@@ -45,20 +45,46 @@ html
                                         a.nav-link(href='/Docs') Tài Liệu 
                                     li.nav-item
                                         a.nav-link(href='/about') Về Chúng Tôi
-                                    li.nav-item
-                                        a.nav-link(href='') More
-                                    li.nav-item
-                                        a.nav-link(href='/test') Câu hỏi của bạn
+                                    //- li.nav-item
+                                    //-     a.nav-link(href='') More
+                                    .dropdown
+                                        button.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown')
+                                            | More
+                                            span.caret
+                                        ul.dropdown-menu
+                                            li
+                                                a.nav-link(href='/test') Câu hỏi của bạn
+                                            li
+                                                a.nav-link(href='/test') New
+                                            li
+                                                a.nav-link(href='/test') Câu hỏi của bạn
+                                    //- li.nav-item
+                                    //-     a.nav-link(href='/test') Câu hỏi của bạn
                                 .user_option
-                                    form.form-inline
-                                        button.btn.my-2.my-sm-0.nav_search-btn(type='submit')
-                                            i.fa.fa-search(aria-hidden='true')
+                                    
                                     if(!user)
                                         a.order_online(href='/signup')
                                                     | Sign up
                                         a.order_online(href='/login')
                                                     | Login
                                     else
+                                        form.form-inline
+                                            button.btn.my-2.my-sm-0.nav_search-btn(type='submit')
+                                                i.fa.fa-search(aria-hidden='true')
+                                        div.form-inline.Message_notifile.test
+                                            div.btn.my-2.my-sm-0.nav_search-btn
+                                                i.fa-regular.fa-bell
+                                            div.Show_Message
+                                                .toast(role='alert' aria-live='assertive' aria-atomic='true')
+                                                    .toast-header
+                                                        div.Message_img
+                                                            img.rounded.mr-2(src=`${user.img||user.photos[0].value}` alt='...')
+                                                        strong.mr-auto=user.username||user.displayName
+                                                        small.text-muted  date
+                                                        button.ml-2.mb-1.close(type='button' data-dismiss='toast' aria-label='Close')
+                                                            span(aria-hidden='true') ×
+                                                    .toast-body
+                                                        | Bạn vừa đăng nhập vào website
                                         a#USER_NAME.user_link(href='')
                                             i.fa.fa-user(aria-hidden='true')
                                             span=user.username || user.displayName
@@ -66,6 +92,9 @@ html
                                         div#MENU_BOX.dropdown-menu.dropdown-menu-right 
                                             if(user.role==="admin")
                                                 a.dropdown-item(href="/admin/Dashboard") Manager Admin
-                                            a.dropdown-item(href="/admin/profine") Profile 
+                                                a.dropdown-item(href="/admin/profine") Profile Admin
+
+                                            if(user.role==="user"||user.displayName)
+                                                a.dropdown-item(href=`/user`) Profile 
                                             a#BTN_LOGOUT.dropdown-item(href="") Logout
 

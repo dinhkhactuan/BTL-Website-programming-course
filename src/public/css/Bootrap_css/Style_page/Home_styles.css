@@ -2462,6 +2462,7 @@ textarea.form-control.is-invalid {
 
 .form-inline {
   display: -ms-flexbox;
+  margin-right: 20px;
   display: flex;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
@@ -7012,31 +7013,31 @@ button.bg-dark:focus {
 }
 
 .border-warning {
-  border-color: #ffc107 !important;
+  border-color: #ffc107;
 }
 
 .border-danger {
-  border-color: #dc3545 !important;
+  border-color: #dc3545;
 }
 
 .border-light {
-  border-color: #f8f9fa !important;
+  border-color: #f8f9fa;
 }
 
 .border-dark {
-  border-color: #343a40 !important;
+  border-color: #343a40;
 }
 
 .border-white {
-  border-color: #fff !important;
+  border-color: #fff;
 }
 
 .rounded-sm {
-  border-radius: 0.2rem !important;
+  border-radius: 0.2rem;
 }
 
 .rounded {
-  border-radius: 0.25rem !important;
+  border-radius: 0.25rem;
 }
 
 .rounded-top {
@@ -7110,8 +7111,8 @@ button.bg-dark:focus {
 }
 
 .d-flex {
-  display: -ms-flexbox !important;
-  display: flex !important;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .d-inline-flex {
@@ -8488,21 +8489,21 @@ button.bg-dark:focus {
 
 .pl-2,
 .px-2 {
-  padding-left: 0.5rem !important;
+  padding-left: 0.5rem;
 }
 
 .p-3 {
-  padding: 1rem !important;
+  padding: 1rem;
 }
 
 .pt-3,
 .py-3 {
-  padding-top: 1rem !important;
+  padding-top: 1rem;
 }
 
 .pr-3,
 .px-3 {
-  padding-right: 1rem !important;
+  padding-right: 1rem;
 }
 
 .pb-3,

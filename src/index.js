@@ -37,7 +37,7 @@ app.enable("trust proxy");
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "resources/view"));
 
-app.set("trust proxy", 1); // trust first proxy
+app.set("trust proxy", 1);
 
 routs(app);
 passport.serializeUser(function (user, done) {

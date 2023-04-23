@@ -6,9 +6,9 @@ const lessonSchema = new Schema(
     lessonName: {
       type: String,
     },
-    Idvideo: {
-      type: String,
-    },
+    // video: {
+    //   vvvvvvvvvvvvvvvvvvvvvvv,
+    // },
   },
   {
     collection: "lessons",

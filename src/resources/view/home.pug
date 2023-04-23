@@ -75,30 +75,28 @@ block content
                 ul.filters_menu
                         li.active(data-filter='*') All
                         each Coures in coures
-                            li(data-filter='.burger')=Coures.name
+                            li.BTN_COURES(data-filter=`.${Coures.id}`)=Coures.name
                             
                 .filters-content
                     .row.grid
                         each Coures in coures
-                            .col-sm-6.col-lg-4.all.pizza
-                                
+                            .CONTENT_COURES.col-sm-6.col-lg-4.all(class=Coures.id)
                                 .box
                                     div
                                         .img-box
                                             img(src=`${Coures.img}` alt='')
                                         .detail-box
-                                            h5=Coures.name
+                                            h5.TITLE_COURES=Coures.name
                                             p=Coures.mota
                                             .options
                                                 a(href=`/coure-detail/${Coures.slug}`)
                                                     | Xem Chi Tiết
                                                 a(href=`/Coures/${Coures.slug}`)
-                                                    | Learn Now
-                        
+                                                    | Learn Now         
                 .btn-box
                     a(href='/category')
                         | View More
-
+                
 
         section.about_section.layout_padding
             .container

@@ -104,7 +104,7 @@ block content
       .page-breadcrumb.bg-white
         .row.align-items-center
           .col-lg-3.col-md-4.col-sm-4.col-xs-12
-            h4.page-title New Coures
+            h4.page-title Update Coures
           .col-lg-9.col-sm-8.col-md-8.col-xs-12
             .d-md-flex
               ol.breadcrumb.ms-auto
@@ -115,27 +115,26 @@ block content
                 | to Pro
           form.top.form(method='' action='')
               .container
-                  
                   .form-group
-                      h1.text Tạo Khóa Học
+                      h1.text Cập nhật khóa học
+                      input#INPUT_COURES_ID(value=`${coures.id}` type="text" disabled)
+                      br
                       label.text(for='name') Tên Khóa Học
-                      input#exampleInputEmail1.create_name.form-control(type='text' placeholder='nhập thông tin' name='name')
-                      small#emailHelp.form-text.text-muted.text Hãy Nhập Thông Tin Chính Xác.
+                      input#INPUT_NAME.create_name.form-control(value=`${coures.name}` type='text' placeholder='Khóa học' name='name')
                   .form-group
                       label.text(for='img') Image
-                      input.exampleInputImg.form-control(type='text' placeholder='nhập thông tin' name='img')
+                      input#INPUT_IMAGE.form-control(value=`${coures.img}` type='text' placeholder='name' name='img')
                   .form-group
                       label.text(for='mota') Mô Tả Khóa Học
-                      input#exampleInputPassword1.create_mota.form-control(type='text' placeholder='nhập thông tin' name='mota')
+                      input#INPUT_MOTA.create_mota.form-control(value=`${coures.mota}` type='text' placeholder='Mota' name='mota')
                   .form-group
                       label.text(for='videoId') Video ID
-                      input#exampleInputvideoId.create_videoId.form-control(type='text' placeholder='video ID' name='videoId')
+                      input#INPUT_VIDEOID.create_videoId.form-control(value=`${coures.videoId}` type='text' placeholder='video ID' name='videoId')
                   .form-group
                       label.text(for='level') Trinh Độ
-                      input#exampleInputlevel.create_level.form-control(type='text' placeholder='Trình Độ' name='level')
-                  button#btn_createCoures.btn.btn-primary Submit 
-        
-
+                      input#INPUT_LEVEL.create_level.form-control(value=`${coures.level}` type='text' placeholder='Trình Độ' name='level')
+                  button#btn_Close_UpdateCoures.btn.btn-primary Quay Lại
+                  button#btn_UpdateCoures.btn.btn-primary  Cập Nhật 
   script(src='/Bootstrap_plugins_admin/bower_components/jquery/dist/jquery.min.js')
   script(src='/bootstrap/dist/js/bootstrap.bundle.min.js')
   script(src='/js/js_admin/app-style-switcher.js')

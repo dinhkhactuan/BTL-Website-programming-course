@@ -26,6 +26,7 @@ const SaveTokenCookie = async (user, statusCode, req, res) => {
 };
 exports.login = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { password, email } = req.body;
     if (!password || !email) return res.json("email || pass ko hợp lệ");
 
@@ -86,7 +87,42 @@ exports.CreateUser = async (req, res, next) => {
     });
   }
 };
-
+exports.createAdmin = async (req, res, next) => {
+  try {
+    if (
+      !req.body.username ||
+      !req.body.email ||
+      !req.body.password ||
+      !req.body.confirmpassword ||
+      !req.body.role
+    ) {
+      return res.json("vui lòng nhập đầy đủ thông tin");
+    }
+    if (req.body.role != "admin") {
+      return res.json("vui long nhap dung vai tro");
+    }
+    const user = await User.create({
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password,
+      confirmpassword: req.body.confirmpassword,
+      role: req.body.role,
+    });
+    if (!user) {
+      return res.status(401).json({
+        status: "failed",
+      });
+    }
+    const token = CreateToken(user._id);
+    res.status(200).json({
+      status: "success",
+      token,
+      user,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 exports.isLogin = async (req, res, next) => {
   if (req.cookies.jwt) {
     try {
@@ -103,6 +139,7 @@ exports.isLogin = async (req, res, next) => {
   }
   if (req.user) {
     try {
+      console.log(req.user);
       res.locals.user = req.user;
       return next();
     } catch (error) {
@@ -127,10 +164,7 @@ exports.protect = async (req, res, next) => {
     } else if (req.cookies.jwt) {
       token = req.cookies.jwt;
     }
-    if (!token)
-      return res.status(400).render("err", {
-        msg: "vui lòng đăng nhập",
-      });
+    if (!token) return res.status(400).redirect("/login");
     const decode = jwt.verify(token, "mk1");
     const CurrentUser = await User.findById({ _id: decode.id });
 

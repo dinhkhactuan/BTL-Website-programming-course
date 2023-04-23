@@ -18,6 +18,7 @@ passport.use(
       const user = await User.findOne({
         id: profile.id,
       });
+
       if (!user) {
         const user = new User({
           id: profile.id,
@@ -29,6 +30,7 @@ passport.use(
         return cb(null, profile);
       } else {
         console.log("user da login fb roi");
+
         console.log(profile);
         return cb(null, profile);
       }
@@ -48,15 +50,7 @@ router.get(
 router.get("/success", async (req, res) => {
   res.json(req.user);
 });
-// router.get("/success", async (req, res) => {
-//   const user = {
-//     id: req.session.passport.user.id,
-//     username: req.session.passport.user.displayName,
-//   };
-//   console.log("tesr");
-//   console.log(user);
-//   res.render("home", { user });
-// });
+
 router.get("/error", (req, res) => {
   res.send("loiix");
 });

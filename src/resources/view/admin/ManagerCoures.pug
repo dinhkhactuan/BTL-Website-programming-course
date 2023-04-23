@@ -46,7 +46,9 @@ block content
               a.nav-toggler.nav-link.waves-effect.waves-light.text-white(href='javascript:void(0)')
                 i.ti-menu.ti-close
           ul.navbar-nav.ms-auto.d-flex.align-items-center
-
+            // ==============================================================
+            // Search
+            // ==============================================================
             li.in
               form.app-search.d-none.d-md-block.me-3(role='search')
                 input.form-control.mt-0(type='text' placeholder='Search...')
@@ -100,11 +102,13 @@ block content
               a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/system' aria-expanded='false')
                 i.fa-sharp.fa-solid.fa-gear
                 span.hide-menu System
+
+
     .page-wrapper
       .page-breadcrumb.bg-white
         .row.align-items-center
           .col-lg-3.col-md-4.col-sm-4.col-xs-12
-            h4.page-title New Coures
+            h4.page-title Manager Coures
           .col-lg-9.col-sm-8.col-md-8.col-xs-12
             .d-md-flex
               ol.breadcrumb.ms-auto
@@ -113,28 +117,60 @@ block content
               a.btn.btn-danger.d-none.d-md-block.pull-right.ms-3.hidden-xs.hidden-sm.waves-effect.waves-light.text-white(href='https://www.wrappixel.com/templates/ampleadmin/' target='_blank')
                 | Upgrade
                 | to Pro
-          form.top.form(method='' action='')
-              .container
-                  
-                  .form-group
-                      h1.text Tạo Khóa Học
-                      label.text(for='name') Tên Khóa Học
-                      input#exampleInputEmail1.create_name.form-control(type='text' placeholder='nhập thông tin' name='name')
-                      small#emailHelp.form-text.text-muted.text Hãy Nhập Thông Tin Chính Xác.
-                  .form-group
-                      label.text(for='img') Image
-                      input.exampleInputImg.form-control(type='text' placeholder='nhập thông tin' name='img')
-                  .form-group
-                      label.text(for='mota') Mô Tả Khóa Học
-                      input#exampleInputPassword1.create_mota.form-control(type='text' placeholder='nhập thông tin' name='mota')
-                  .form-group
-                      label.text(for='videoId') Video ID
-                      input#exampleInputvideoId.create_videoId.form-control(type='text' placeholder='video ID' name='videoId')
-                  .form-group
-                      label.text(for='level') Trinh Độ
-                      input#exampleInputlevel.create_level.form-control(type='text' placeholder='Trình Độ' name='level')
-                  button#btn_createCoures.btn.btn-primary Submit 
-        
+          table.table.mt-3  
+            thead.thead-dark
+                tr
+                    th(scope='col') #
+                    th(scope='col') Name
+                    th(scope='col') Level
+                    th(scope='col') Update
+            tbody
+              each Coures in coures
+                tr
+                    th(scope='row') 1
+                    td=Coures.name
+                    td=Coures.level
+                    td 
+                      a(href=`/admin/UpdateCoures/${Coures.id}`) 
+                        button.btn_update_main.btn.btn-primary
+                          | Sửa 
+                      button.btn_delete_main.btn.btn-danger(type='button' data-id=`${Coures.id}` data-toggle='modal' data-target='#exampleModal')
+                        | Xóa 
+                      #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                        .modal-dialog(role='document')
+                            .modal-content
+                                .modal-header
+                                    h5#exampleModalLabel.modal-title Modal title
+                                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                        span(aria-hidden='true') ×
+                                .modal-body
+                                    | bạn muốn xóa khóa học này
+                                .modal-footer
+                                    button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                                    button.btn_delete_coures.btn.btn-danger(type='button') Xóa
+    script.
+      window.addEventListener('DOMContentLoaded',()=>{
+        let Id ;
+        $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var id = button.data('id') 
+          Id = id
+        })
+        const btn_delete_coures = document.querySelector('.btn_delete_coures')
+        btn_delete_coures.addEventListener('click',async  ()=>{
+          try{
+            const res= await axios({
+              method:'delete',
+              url:`/api/v1/coures/${Id}`,
+            })
+            if(res.data.status=="success"){
+              window.location.assign("/admin/ManagerCoures")
+            }
+          }catch(err){
+            console.log(err)
+          }
+        })
+      })
 
   script(src='/Bootstrap_plugins_admin/bower_components/jquery/dist/jquery.min.js')
   script(src='/bootstrap/dist/js/bootstrap.bundle.min.js')

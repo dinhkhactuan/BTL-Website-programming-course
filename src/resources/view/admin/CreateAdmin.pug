@@ -104,7 +104,7 @@ block content
       .page-breadcrumb.bg-white
         .row.align-items-center
           .col-lg-3.col-md-4.col-sm-4.col-xs-12
-            h4.page-title New Coures
+            h4.page-title Create User
           .col-lg-9.col-sm-8.col-md-8.col-xs-12
             .d-md-flex
               ol.breadcrumb.ms-auto
@@ -117,23 +117,31 @@ block content
               .container
                   
                   .form-group
-                      h1.text Tạo Khóa Học
-                      label.text(for='name') Tên Khóa Học
-                      input#exampleInputEmail1.create_name.form-control(type='text' placeholder='nhập thông tin' name='name')
+                      h1.text Thêm Tài Khoản Admin
+                      label.text(for='name') User Name
+                      input.Admin_name.form-control(type='text' placeholder='Username' name='name')
                       small#emailHelp.form-text.text-muted.text Hãy Nhập Thông Tin Chính Xác.
                   .form-group
-                      label.text(for='img') Image
-                      input.exampleInputImg.form-control(type='text' placeholder='nhập thông tin' name='img')
+                      label.text(for='Email') Email
+                      input.Admin_email.form-control(type='text' placeholder='Email' name='Email')
                   .form-group
-                      label.text(for='mota') Mô Tả Khóa Học
-                      input#exampleInputPassword1.create_mota.form-control(type='text' placeholder='nhập thông tin' name='mota')
+                      label.text(for='Password') Password
+                      input.Admin_Password.form-control(type='text' placeholder='Password' name='Password')
                   .form-group
-                      label.text(for='videoId') Video ID
-                      input#exampleInputvideoId.create_videoId.form-control(type='text' placeholder='video ID' name='videoId')
+                      label.text(for='Confirm Password') Confirm Password
+                      input.Admin_Confirm_Password.form-control(type='text' placeholder='Confirm Password' name='Confirm Password')
                   .form-group
-                      label.text(for='level') Trinh Độ
-                      input#exampleInputlevel.create_level.form-control(type='text' placeholder='Trình Độ' name='level')
-                  button#btn_createCoures.btn.btn-primary Submit 
+                      label.text(for='level') Chọn vai trò
+                  .form-group
+                      form
+                            input.listAdmin#Admin(type='radio' name='Admin' value='admin' checked)
+                            label(for='html') | Admin
+                            br
+                            input.listAdmin#Manager(type='radio' name='Manager' value='manager')
+                            label(for='css') | Quản trị
+                  button.BTN_Create_Admin.btn.btn-primary Chấp Nhận
+                  button.BTN_begin_Admin.btn.btn-primary Làm lại 
+                  
         
 
   script(src='/Bootstrap_plugins_admin/bower_components/jquery/dist/jquery.min.js')

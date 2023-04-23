@@ -11,12 +11,12 @@ block content
                     ul.filters_menu
                         li.active(data-filter='*') All
                         each Coures in coures
-                            li(data-filter='.burger')=Coures.name
+                            li(data-filter=`.${Coures.id}`)=Coures.name
                         
                     .filters-content
                         .row.grid
                             each Coures in coures
-                                .col-sm-6.col-lg-4.all.pizza
+                                .col-sm-6.col-lg-4.all(class=Coures.id)
                                     .box
                                         div
                                             .img-box

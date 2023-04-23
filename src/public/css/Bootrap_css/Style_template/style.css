@@ -179,11 +179,12 @@ a:focus {
 
 .custom_nav-container .nav_search-btn {
   width: auto;
+  cursor: pointer;
   height: auto;
   padding: 0;
+  padding: 5px 10px 5px;
   border: none;
   color: #ffffff;
-  margin: 0 10px;
 }
 
 .custom_nav-container .nav_search-btn:hover {
@@ -241,7 +242,8 @@ a:focus {
   padding: 10px 7px;
   background-color: #ffbe33;
   color: #ffffff;
-  border-radius: 45px;
+  margin-left: 10px;
+  border-radius: 10px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -1015,3 +1017,64 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+.menu_hover {
+  color: #000;
+}
+.menu_hover:hover {
+  color: blue;
+}
+.d-flex {
+  flex-direction: row-reverse;
+}
+.alert.hiddlen_notifications {
+  display: none;
+}
+#MESSAGE_SUCCESS.success_message_notifications {
+  display: none;
+}
+#PROFILE_USER_ID.hiddlen_notifications {
+  display: none;
+}
+.Message_notifile {
+  position: relative;
+}
+
+.Show_Message::before {
+  content: "";
+  position: absolute;
+  top: -44px;
+  left: 21%;
+  width: 0px;
+  height: 0px;
+  z-index: 10;
+  border: 15px solid transparent;
+  border-bottom: 30px solid;
+  border-bottom-color: #ffffff;
+}
+
+.Show_Message {
+  display: inline-block;
+  position: absolute;
+  top: 64px;
+  left: -20px;
+  z-index: 10;
+  transform: translateX(-50px);
+}
+.Message_img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+img.rounded.mr-2 {
+  border-radius: 50px;
+}
+.Message_notifile.test .Show_Message {
+  display: inline-block;
+}
+.btn_delete_main {
+  margin-left: 10px;
+}
+.Table_Manager_admin {
+  z-index: 10;
+}

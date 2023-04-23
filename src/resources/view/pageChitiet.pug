@@ -41,7 +41,6 @@ block content
                                     a(href='/coures/nodejs-express')
                                         iframe(maxwidth='600' height='450' src=`https://www.youtube.com/embed/${coures.videoId}` title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
                                 .article-title
-                                    
                                     h2=coures.name
                                     .media
                                         .avatar
@@ -95,8 +94,8 @@ block content
                                 .widget-body
                                     each Lesson in lesson
                                             p=Lesson.lessonName
-                                            a.list-group-item.list-group-item-action.active.py-3.lh-tight(href=`https://www.youtube.com/embed/${Lesson.Idvideo}` aria-current='true')
-                                    
+                                            a.list-group-item.list-group-item-action.active.py-3.lh-tight(href=`/watch/${coures.videoId}` aria-current='true')
+                                                iframe(src=`https://www.youtube.com/embed/${Lesson.Idvideo}`,allowfullscreen=true frameborder="0") 
                             .widget.widget-latest-post
                                 .widget-title
                                     h3 Latest Post
