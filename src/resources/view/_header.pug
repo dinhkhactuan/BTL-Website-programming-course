@@ -78,7 +78,7 @@ html
                                                 .toast(role='alert' aria-live='assertive' aria-atomic='true')
                                                     .toast-header
                                                         div.Message_img
-                                                            img.rounded.mr-2(src=`${user.img }` alt='...')
+                                                            img.rounded.mr-2(src=`${user.img || user.photos[0].value}` alt='...')
                                                         strong.mr-auto=user.username||user.displayName
                                                         small.text-muted=user.photos
                                                         button.ml-2.mb-1.close(type='button' data-dismiss='toast' aria-label='Close')
