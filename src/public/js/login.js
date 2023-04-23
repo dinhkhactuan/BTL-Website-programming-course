@@ -17,7 +17,7 @@ async function handleLogin() {
         password,
       },
     });
-    console.log(res);
+    console.log(res.status);
 
     if (res.data.status == "success") {
       // alertsussess.classList.add("active_success");
@@ -25,11 +25,8 @@ async function handleLogin() {
         window.setTimeout(() => {
           location.assign("/");
         });
-      }, 1000);
-      console.log(Message_notifile);
-      setTimeout(() => {
-        Message_notifile.classList.add("test");
-      }, 2000);
+      }, 5000);
+
       // } else if (res.data.status == "failed") {
       //   alertfalse.classList.add("active_false");
     }

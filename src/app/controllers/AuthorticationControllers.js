@@ -45,6 +45,7 @@ exports.login = async (req, res, next) => {
       });
     SaveTokenCookie(user, 200, req, res);
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       status: "failed",
       err,
