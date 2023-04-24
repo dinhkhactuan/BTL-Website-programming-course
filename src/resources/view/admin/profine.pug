@@ -34,21 +34,12 @@ block content
         
           a.nav-toggler.waves-effect.waves-light.text-dark.d-block.d-md-none(href='javascript:void(0)')
             i.ti-menu.ti-close
-        // ==============================================================
-        // End Logo
-        // ==============================================================
         #navbarSupportedContent.navbar-collapse.collapse(data-navbarbg='skin5')
           ul.navbar-nav.d-none.d-md-block.d-lg-none
             li.nav-item
               a.nav-toggler.nav-link.waves-effect.waves-light.text-white(href='javascript:void(0)')
                 i.ti-menu.ti-close
-          // ==============================================================
-          // Right side toggle and nav items
-          // ==============================================================
           ul.navbar-nav.ms-auto.d-flex.align-items-center
-            // ==============================================================
-            // Search
-            // ==============================================================
             li.in
               form.app-search.d-none.d-md-block.me-3(role='search')
                 input.form-control.mt-0(type='text' placeholder='Search...')
@@ -58,12 +49,10 @@ block content
             li
               a.profile-pic(href='/admin/profine')
                 img.img-circle(src=`${user.img ||user.photos[0].value}` alt='user-img' width='36')
-                span.text-white.font-medium Steave
+                span.text-white.font-medium= user.username
           
     aside.left-sidebar(data-sidebarbg='skin6')
-      // Sidebar scroll
       .scroll-sidebar
-        // Sidebar navigation
         nav.sidebar-nav
           ul#sidebarnav
             // User Profile
@@ -76,7 +65,7 @@ block content
                 i.fa.fa-user(aria-hidden='true')
                 span.hide-menu Profile
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='' aria-expanded='false')
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/manager-users' aria-expanded='false')
                 i.fa-solid.fa-people-roof
                 span.hide-menu Manager User
             li.sidebar-item
@@ -124,10 +113,10 @@ block content
                 img(width='100%' alt='user' src=`${user.img ||user.photos[0].value}`)
                 .overlay-box
                   .user-content
-                    a(href='javascript:void(0)')
+                    a(href='')
                       img.thumb-lg.img-circle(src=`${user.img ||user.photos[0].value}` alt='img')
-                    h4.text-white.mt-2 User Name
-                    h5.text-white.mt-2 info@myadmin.com
+                    h4.text-white.mt-2=user.username||user.displayName
+                    h5.text-white.mt-2=user.email||user.emails[0].value
               .user-btm-box.mt-5.d-md-flex
                 .col-md-4.col-sm-4.text-center
                   h1 258
@@ -135,8 +124,7 @@ block content
                   h1 125
                 .col-md-4.col-sm-4.text-center
                   h1 556
-          // Column
-          // Column
+
           .col-lg-8.col-xlg-9.col-md-12
             .card
               .card-body

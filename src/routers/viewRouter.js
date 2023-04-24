@@ -90,6 +90,12 @@ router.get(
   viewControllers.pageAdmin_Dashboard
 );
 router.get(
+  "/admin/manager-users",
+  authorzicationControllers.protect,
+  authorzicationControllers.decentralization("admin"),
+  viewControllers.pageManagerUsers
+);
+router.get(
   "/Docs",
   authorzicationControllers.isLogin,
   viewControllers.pageDocs

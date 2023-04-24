@@ -1038,7 +1038,9 @@ a:focus {
 .Message_notifile {
   position: relative;
 }
-
+.Message_notifile.hide .Show_Message {
+  display: none;
+}
 .Show_Message::before {
   content: "";
   position: absolute;
@@ -1053,7 +1055,7 @@ a:focus {
 }
 
 .Show_Message {
-  display: inline-block;
+  /* display: inline-block; */
   position: absolute;
   top: 64px;
   left: -20px;
@@ -1069,9 +1071,7 @@ a:focus {
 img.rounded.mr-2 {
   border-radius: 50px;
 }
-.Message_notifile.test .Show_Message {
-  display: inline-block;
-}
+
 .btn_delete_main {
   margin-left: 10px;
 }

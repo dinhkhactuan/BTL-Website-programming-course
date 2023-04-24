@@ -55,16 +55,13 @@ block content
           
             li
               a.profile-pic(href='/admin/profine')
-                img.img-circle(src='/Bootstrap_plugins_admin/images/users/varun.jpg' alt='user-img' width='36')
-                span.text-white.font-medium Steave
+                img.img-circle(src=`${user.img}` alt='user-img' width='36')
+                span.text-white.font-medium= user.username
           
     aside.left-sidebar(data-sidebarbg='skin6')
-      // Sidebar scroll
       .scroll-sidebar
-        // Sidebar navigation
         nav.sidebar-nav
           ul#sidebarnav
-            // User Profile
             li.sidebar-item.pt-2
               a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/dashboard' aria-expanded='false')
                 i.far.fa-clock(aria-hidden='true')
@@ -74,7 +71,7 @@ block content
                 i.fa.fa-user(aria-hidden='true')
                 span.hide-menu Profile
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='' aria-expanded='false')
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/manager-users' aria-expanded='false')
                 i.fa-solid.fa-people-roof
                 span.hide-menu Manager User
             li.sidebar-item

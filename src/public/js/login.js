@@ -1,5 +1,5 @@
 const btnlogin = document.querySelector("#Btn_Login");
-// const Message_notifile = document.querySelector(".Message_notifile");
+
 if (btnlogin)
   btnlogin.addEventListener("click", (e) => {
     e.preventDefault();
@@ -24,7 +24,6 @@ async function handleLogin() {
       window.setTimeout(() => {
         location.assign("/");
       });
-
       // } else if (res.data.status == "failed") {
       //   alertfalse.classList.add("active_false");
     }

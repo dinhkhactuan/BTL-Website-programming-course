@@ -48,8 +48,8 @@ block content
                   i.fa.fa-search
             li
               a.profile-pic(href='/admin/profine')
-                img.img-circle(src='/Bootstrap_plugins_admin/images/users/varun.jpg' alt='user-img' width='36')
-                span.text-white.font-medium Steave
+                img.img-circle(src=`${user.img}` alt='user-img' width='36')
+                span.text-white.font-medium= user.username
     aside.left-sidebar(data-sidebarbg='skin6')
       // Sidebar scroll
       .scroll-sidebar
@@ -66,7 +66,7 @@ block content
                 i.fa.fa-user(aria-hidden='true')
                 span.hide-menu Profile
             li.sidebar-item
-              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='' aria-expanded='false')
+              a.sidebar-link.waves-effect.waves-dark.sidebar-link(href='/admin/manager-users' aria-expanded='false')
                 i.fa-solid.fa-people-roof
                 span.hide-menu Manager User
             li.sidebar-item
@@ -138,7 +138,7 @@ block content
         .row
           .col-md-12.col-lg-12.col-sm-12.col-xs-12
             .white-box
-              h3.box-title Products Yearly Sales
+              h3.box-title Lượt Xem Trong Năm
               .d-md-flex
                 ul.list-inline.d-flex.ms-auto
                   li.ps-3
@@ -156,7 +156,7 @@ block content
           .col-md-12.col-lg-12.col-sm-12
             .white-box
               .d-md-flex.mb-3
-                h3.box-title.mb-0 Recent sales
+                h3.box-title.mb-0 Các tài Khoản đăng nhập gần đây
                 .col-md-3.col-sm-4.col-xs-6.ms-auto
                   select.form-select.shadow-none.row.border-top
                     option March 2021
@@ -170,179 +170,60 @@ block content
                     tr
                       th.border-top-0 #
                       th.border-top-0 Name
-                      th.border-top-0 Status
-                      th.border-top-0 Date
-                      th.border-top-0 Price
+                      th.border-top-0 Active
+                      th.border-top-0 Email
+                      th.border-top-0 Time
                   tbody
-                    tr
-                      td 1
-                      td.txt-oflo Elite admin
-                      td SALE
-                      td.txt-oflo April 18, 2021
-                      td
-                        span.text-success $24
-                    tr
-                      td 2
-                      td.txt-oflo Real Homes WP Theme
-                      td EXTENDED
-                      td.txt-oflo April 19, 2021
-                      td
-                        span.text-info $1250
-                    tr
-                      td 3
-                      td.txt-oflo Ample Admin
-                      td EXTENDED
-                      td.txt-oflo April 19, 2021
-                      td
-                        span.text-info $1250
-                    tr
-                      td 4
-                      td.txt-oflo Medical Pro WP Theme
-                      td TAX
-                      td.txt-oflo April 20, 2021
-                      td
-                        span.text-danger -$24
-                    tr
-                      td 5
-                      td.txt-oflo Hosting press html
-                      td SALE
-                      td.txt-oflo April 21, 2021
-                      td
-                        span.text-success $24
-                    tr
-                      td 6
-                      td.txt-oflo Digital Agency PSD
-                      td SALE
-                      td.txt-oflo April 23, 2021
-                      td
-                        span.text-danger -$14
-                    tr
-                      td 7
-                      td.txt-oflo Helping Hands WP Theme
-                      td MEMBER
-                      td.txt-oflo April 22, 2021
-                      td
-                        span.text-success $64
+                    each Users in users 
+                      if(Users.role!=="admin")
+                        tr
+                          td 1
+                          td.txt-oflo=Users.username
+                          td=Users.active
+                          td.txt-oflo=Users.email
+                          td
+                            span.text-success test
+                    
       
         .row
           .col-md-12.col-lg-8.col-sm-12
             .card.white-box.p-0
               .card-body
-                h3.box-title.mb-0 Recent Comments
+                h3.box-title.mb-0 Những ý kiến ​​gần đây
               .comment-widgets
-                .d-flex.flex-row.comment-row.p-3.mt-0
-                  .p-2
-                    img.rounded-circle(src='/Bootstrap_plugins_admin/images/users/varun.jpg' alt='user' width='50')
-                  .comment-text.ps-2.ps-md-3.w-100
-                    h5.font-medium James Anderson
-                    span.mb-3.d-block
-                      | Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries.
-                    .comment-footer.d-md-flex.align-items-center
-                      span.badge.bg-primary.rounded Pending
-                      .text-muted.fs-2.ms-auto.mt-2.mt-md-0 April 14, 2021
-                .d-flex.flex-row.comment-row.p-3
-                  .p-2
-                    img.rounded-circle(src='/Bootstrap_plugins_admin/images/users/genu.jpg' alt='user' width='50')
-                  .comment-text.ps-2.ps-md-3.active.w-100
-                    h5.font-medium Michael Jorden
-                    span.mb-3.d-block
-                      | Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries.
-                    .comment-footer.d-md-flex.align-items-center
-                      span.badge.bg-success.rounded Approved
-                      .text-muted.fs-2.ms-auto.mt-2.mt-md-0 April 14, 2021
-                .d-flex.flex-row.comment-row.p-3
-                  .p-2
-                    img.rounded-circle(src='/Bootstrap_plugins_admin/images/users/ritesh.jpg' alt='user' width='50')
-                  .comment-text.ps-2.ps-md-3.w-100
-                    h5.font-medium Johnathan Doeting
-                    span.mb-3.d-block
-                      | Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries.
-                    .comment-footer.d-md-flex.align-items-center
-                      span.badge.rounded.bg-danger Rejected
-                      .text-muted.fs-2.ms-auto.mt-2.mt-md-0 April 14, 2021
+                each Users in users
+                  if(Users.role!=="admin")
+                    .d-flex.flex-row.comment-row.p-3.mt-0
+                      .p-2
+                        img.rounded-circle(src=`${Users.img || user.photos[0].value}` alt='user' width='50')
+                      .comment-text.ps-2.ps-md-3.w-100
+                        h5.font-medium=Users.username
+                        span.mb-3.d-block
+                          | Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries.
+                        .comment-footer.d-md-flex.align-items-center
+                          span.badge.bg-primary.rounded Pending
+                          .text-muted.fs-2.ms-auto.mt-2.mt-md-0 April 14, 2021
+                
           .col-lg-4.col-md-12.col-sm-12
             .card.white-box.p-0
               .card-heading
-                h3.box-title.mb-0 Chat Listing
+                h3.box-title.mb-0 Danh sách trò chuyện
               .card-body
                 ul.chatonline
-                  li
-                    .call-chat
-                      button.btn.btn-success.text-white.btn-circle.btn(type='button')
-                        i.fas.fa-phone
-                      button.btn.btn-info.btn-circle.btn(type='button')
-                        i.far.fa-comments.text-white
-                    a.d-flex.align-items-center(href='javascript:void(0)')
-                      img.img-circle(src='/Bootstrap_plugins_admin/images/users/varun.jpg' alt='user-img')
-                      .ms-2
-                        span.text-dark
-                          | Varun Dhavan 
-                          small.d-block.text-success.d-block online
-                  li
-                    .call-chat
-                      button.btn.btn-success.text-white.btn-circle.btn(type='button')
-                        i.fas.fa-phone
-                      button.btn.btn-info.btn-circle.btn(type='button')
-                        i.far.fa-comments.text-white
-                    a.d-flex.align-items-center(href='javascript:void(0)')
-                      img.img-circle(src='/Bootstrap_plugins_admin/images/users/genu.jpg' alt='user-img')
-                      .ms-2
-                        span.text-dark
-                          | Genelia
-                          | Deshmukh 
-                          small.d-block.text-warning Away
-                  li
-                    .call-chat
-                      button.btn.btn-success.text-white.btn-circle.btn(type='button')
-                        i.fas.fa-phone
-                      button.btn.btn-info.btn-circle.btn(type='button')
-                        i.far.fa-comments.text-white
-                    a.d-flex.align-items-center(href='javascript:void(0)')
-                      img.img-circle(src='/Bootstrap_plugins_admin/images/users/ritesh.jpg' alt='user-img')
-                      .ms-2
-                        span.text-dark
-                          | Ritesh
-                          | Deshmukh 
-                          small.d-block.text-danger Busy
-                  li
-                    .call-chat
-                      button.btn.btn-success.text-white.btn-circle.btn(type='button')
-                        i.fas.fa-phone
-                      button.btn.btn-info.btn-circle.btn(type='button')
-                        i.far.fa-comments.text-white
-                    a.d-flex.align-items-center(href='javascript:void(0)')
-                      img.img-circle(src='/Bootstrap_plugins_admin/images/users/arijit.jpg' alt='user-img')
-                      .ms-2
-                        span.text-dark
-                          | Arijit
-                          | Sinh 
-                          small.d-block.text-muted Offline
-                  li
-                    .call-chat
-                      button.btn.btn-success.text-white.btn-circle.btn(type='button')
-                        i.fas.fa-phone
-                      button.btn.btn-info.btn-circle.btn(type='button')
-                        i.far.fa-comments.text-white
-                    a.d-flex.align-items-center(href='javascript:void(0)')
-                      img.img-circle(src='/Bootstrap_plugins_admin/images/users/govinda.jpg' alt='user-img')
-                      .ms-2
-                        span.text-dark
-                          | Govinda
-                          | Star 
-                          small.d-block.text-success online
-                  li
-                    .call-chat
-                      button.btn.btn-success.text-white.btn-circle.btn(type='button')
-                        i.fas.fa-phone
-                      button.btn.btn-info.btn-circle.btn(type='button')
-                        i.far.fa-comments.text-white
-                    a.d-flex.align-items-center(href='javascript:void(0)')
-                      img.img-circle(src='/Bootstrap_plugins_admin/images/users/hritik.jpg' alt='user-img')
-                      .ms-2
-                        span.text-dark
-                          | John
-                          | Abraham
-                          small.d-block.text-success online
+                  each Users in users
+                    if(Users.role!=="admin")
+                      li
+                        .call-chat
+                          button.btn.btn-success.text-white.btn-circle.btn(type='button')
+                            i.fas.fa-phone
+                          button.btn.btn-info.btn-circle.btn(type='button')
+                            i.far.fa-comments.text-white
+                        a.d-flex.align-items-center(href='')
+                          img.img-circle(src=`${Users.img || user.photos[0].value}` alt='user-img')
+                          .ms-2
+                            span.text-dark=Users.username||user.displayName
+                              small.d-block.text-success.d-block online
+                  
 
   script(src='/Bootstrap_plugins_admin/bower_components/jquery/dist/jquery.min.js')
   script(src='/bootstrap/dist/js/bootstrap.bundle.min.js')

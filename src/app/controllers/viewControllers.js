@@ -174,12 +174,22 @@ exports.pageAdmin_Profine = async (req, res, next) => {
 };
 exports.pageAdmin_Dashboard = async (req, res, next) => {
   try {
-    res.status(200).render("admin/Dashboard");
+    const users = await User.find({});
+    res.status(200).render("admin/Dashboard", {
+      users,
+    });
   } catch (error) {
     console.log(error);
   }
 };
-
+exports.pageManagerUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({});
+    res.status(200).render("admin/ManagerUsers", {
+      users,
+    });
+  } catch (error) {}
+};
 exports.pageDocs = async (req, res, next) => {
   try {
     const coures = await Coures.find({});
