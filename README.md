@@ -26,3 +26,5 @@ Website học lập trình
 - npm run dev (chạy dự án khi phát triển website cập nhật sự khi thay đổi code).
 - npm run build
 - npm run watch (chuyển đổi scss -> css)
+
+# MÔ hình (MVC)
