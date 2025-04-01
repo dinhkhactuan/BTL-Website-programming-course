@@ -1,3 +1,5 @@
+import routes from "./routers";
+
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
@@ -5,8 +7,7 @@ const app = express();
 const passport = require("passport");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const port = process.env.PORT || 3000;
-const routs = require("./routers");
+const port = process.env.PORT || 3002;
 const db = require("./config/db");
 require("dotenv").config();
 db.connect();
@@ -17,7 +18,6 @@ app.use(
   })
 );
 app.use(express.json());
-//http
 app.use(morgan("combined"));
 
 app.use(cookieParser());
@@ -39,7 +39,7 @@ app.set("views", path.join(__dirname, "resources/view"));
 
 app.set("trust proxy", 1);
 
-routs(app);
+routes(app);
 passport.serializeUser(function (user, done) {
   done(null, user);
 });

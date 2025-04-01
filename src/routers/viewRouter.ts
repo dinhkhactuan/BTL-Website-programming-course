@@ -1,110 +1,129 @@
-const express = require("express");
-const router = express.Router();
-const viewControllers = require("../app/controllers/viewControllers");
-const authorzicationControllers = require("../app/controllers/AuthorticationControllers");
-const userControllers = require("../app/controllers/UserControllers");
+import { Router, Request, Response, NextFunction } from 'express';
+import * as authorzicationControllers from "../app/controllers/AuthorticationControllers";
+import { Page_about, page_category, page_test, pageAdmin_Dashboard, pageAdmin_Profine, pageChitiet, Pagecreate_admin, pageCreateCoures, pageDocs, PageEdit_admin, pageLogin, PageManagerCoures, pageManagerUsers, pageOverView, pageSignup, PageSystem, PageUpdateCoures, pageXemchitiet, profile, user_view } from '../app/controllers/viewControllers';
+
+const router: Router = Router();
 
 router.get(
   "/Coures/:slug",
   authorzicationControllers.protect,
-  viewControllers.pageChitiet
+  pageChitiet
 );
 
 router.get(
   "/coure-detail/:slug",
   authorzicationControllers.isLogin,
-  viewControllers.pageXemchitiet
+  pageXemchitiet
 );
+
 router.get(
   "/admin/CreateCoures",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin", "manager"),
-  viewControllers.pageCreateCoures
+  pageCreateCoures
 );
+
 router.get(
   "/admin/UpdateCoures/:id",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin", "manager"),
-  viewControllers.PageUpdateCoures
+  PageUpdateCoures
 );
+
 router.get(
   "/admin/ManagerCoures",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin", "manager"),
-  viewControllers.PageManagerCoures
+  PageManagerCoures
 );
+
 router.get(
   "/admin/system",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin"),
-  viewControllers.PageSystem
+  PageSystem
 );
+
 router.get(
   "/admin/system/create_admin",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin"),
-  viewControllers.Pagecreate_admin
+  Pagecreate_admin
 );
+
 router.get(
   "/admin/system/edit/:id",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin"),
-  viewControllers.PageEdit_admin
+  PageEdit_admin
 );
-router.get("/signup", viewControllers.pageSignup);
-router.get("/login", viewControllers.pageLogin);
+
+// Public routes
+router.get("/signup", pageSignup);
+router.get("/login", pageLogin);
 router.get(
   "/about",
   authorzicationControllers.isLogin,
-  viewControllers.Page_about
+  Page_about
 );
+
 router.get(
   "/category",
   authorzicationControllers.isLogin,
-  viewControllers.page_category
+  page_category
 );
+
 router.get(
   "/test",
   authorzicationControllers.isLogin,
-  viewControllers.page_test
+  page_test
 );
+
 router.get(
   "/user",
   authorzicationControllers.isLogin,
-  viewControllers.user_view
+  user_view
 );
+
 router.get(
   "/user/profile",
   authorzicationControllers.isLogin,
-  viewControllers.profile
+  profile
 );
+
+// Admin Profile and Dashboard routes
 router.get(
   "/admin/profine",
   authorzicationControllers.protect,
-  viewControllers.pageAdmin_Profine
+  pageAdmin_Profine
 );
+
 router.get(
   "/admin/Dashboard",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin"),
-  viewControllers.pageAdmin_Dashboard
+  pageAdmin_Dashboard
 );
+
 router.get(
   "/admin/manager-users",
   authorzicationControllers.protect,
   authorzicationControllers.decentralization("admin"),
-  viewControllers.pageManagerUsers
+  pageManagerUsers
 );
+
+// Docs route
 router.get(
   "/Docs",
   authorzicationControllers.isLogin,
-  viewControllers.pageDocs
+  pageDocs
 );
 
+// Home route
 router.get(
   "/",
   authorzicationControllers.isLogin,
-  viewControllers.pageOverView
+  pageOverView
 );
 
-module.exports = router;
+export default router;

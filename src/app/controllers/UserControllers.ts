@@ -1,14 +1,18 @@
-const User = require("../models/Users");
-const handleFactory = require("./handleFactory");
+import { Request, Response, NextFunction } from 'express';
+import User from "../models/Users";
+import * as handleFactory from "./handleFactory";
 
-exports.UpdateUser = async (req, res, next) => {
+export const UpdateUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
     console.log(req.body);
     const { password, confirmpassword } = req.body;
-    if (password || confirmpassword)
+    
+    if (password || confirmpassword) {
       return res.status(500).json({
         message: "không được chỉnh sủa mật khẩu",
       });
+    }
+
     const newUser = await User.findByIdAndUpdate(
       req.params.id,
       {
@@ -27,21 +31,25 @@ exports.UpdateUser = async (req, res, next) => {
       Document: newUser,
     });
   } catch (err) {
-    res.status(200).json({
+    res.status(500).json({
       status: "failed",
       err,
     });
   }
 };
-exports.UpdateAdmin = async (req, res, next) => {
+
+export const UpdateAdmin = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    if (req.body.password || req.body.confirmpassword)
+    if (req.body.password || req.body.confirmpassword) {
       return res.status(500).json({
         message: "không được chỉnh sủa mật khẩu",
       });
-    if (!req.body.username || !req.body.email || !req.body.role) {
-      return res.json("vui long nhap du thong tin");
     }
+
+    if (!req.body.username || !req.body.email || !req.body.role) {
+      return res.json("vui lòng nhập đủ thông tin");
+    }
+
     const newUser = await User.findByIdAndUpdate(
       req.params.id,
       {
@@ -61,13 +69,14 @@ exports.UpdateAdmin = async (req, res, next) => {
       Document: newUser,
     });
   } catch (err) {
-    res.status(200).json({
+    res.status(500).json({
       status: "failed",
       err,
     });
   }
 };
-exports.DeleteUserMe = async (req, res, next) => {
+
+export const DeleteUserMe = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
     const newUser = await User.findByIdAndUpdate(
       req.params.id,
@@ -86,13 +95,13 @@ exports.DeleteUserMe = async (req, res, next) => {
       Document: newUser,
     });
   } catch (err) {
-    res.status(200).json({
+    res.status(500).json({
       status: "failed",
       err,
     });
   }
 };
 
-exports.GetUser = handleFactory.GetUser(User);
-exports.getAllUser = handleFactory.getAllResources(User);
-exports.DeleteUser = handleFactory.DeleteResources(User);
+export const GetUser = handleFactory.GetUser(User as any);
+export const getAllUser = handleFactory.getAllResources(User as any);
+export const DeleteUser = handleFactory.DeleteResources(User as any);
